@@ -1,0 +1,481 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 320px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: #ffffff;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #DE7356;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* ── Hostname bar ────────────────────────────────────────────────────────── */
+
+.hostname-bar {
+  background: #FFF4F1;
+  border-bottom: 1px solid #F5C4B8;
+  padding: 6px 16px;
+  font-size: 12px;
+  color: #B84B32;
+  font-weight: 500;
+}
+
+/* ── Views ───────────────────────────────────────────────────────────────── */
+
+.view {
+  padding: 16px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ── Typography helpers ──────────────────────────────────────────────────── */
+
+.description {
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.hint code {
+  background: #FFF0EC;
+  color: #C85F42;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+.step-indicator {
+  font-size: 11px;
+  font-weight: 600;
+  color: #DE7356;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+/* ── Configured view ─────────────────────────────────────────────────────── */
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+
+.status-text {
+  font-weight: 600;
+  color: #166534;
+  font-size: 13px;
+}
+
+.selector-preview {
+  background: #FFF4F1;
+  border: 1px solid #F5C4B8;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+}
+
+.selector-preview .label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.selector-preview code {
+  font-size: 12px;
+  color: #B84B32;
+  word-break: break-all;
+}
+
+/* ── Field groups ────────────────────────────────────────────────────────── */
+
+.field-group {
+  margin-bottom: 14px;
+}
+
+.field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.selector-code {
+  display: block;
+  background: #FFF4F1;
+  border: 1px solid #F5C4B8;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #B84B32;
+  word-break: break-all;
+  margin-bottom: 4px;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #F5C4B8;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+  resize: vertical;
+  line-height: 1.5;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+textarea:focus {
+  border-color: #DE7356;
+  box-shadow: 0 0 0 3px rgba(222, 115, 86, 0.15);
+}
+
+/* ── Placeholder list ────────────────────────────────────────────────────── */
+
+.placeholder-list {
+  background: #FFF4F1;
+  border: 1px solid #F5C4B8;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.placeholder-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.placeholder-chip .token {
+  background: #FFE8E1;
+  color: #C85F42;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-family: monospace;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.placeholder-chip .chip-selector {
+  color: #888;
+  word-break: break-all;
+  flex: 1;
+  font-size: 11px;
+}
+
+.placeholder-chip input.chip-name {
+  border: 1px solid #F5C4B8;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-family: monospace;
+  color: #B84B32;
+  width: 90px;
+  outline: none;
+}
+
+.placeholder-chip input.chip-name:focus {
+  border-color: #DE7356;
+}
+
+.placeholder-chip button.chip-remove {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+.placeholder-chip button.chip-remove:hover {
+  color: #e53e3e;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+
+.btn-primary {
+  background: #DE7356;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primary:hover { background: #C85F42; }
+.btn-primary:active { opacity: 0.85; }
+
+.btn-secondary {
+  background: #FFF0EC;
+  color: #C85F42;
+  border: 1px solid #F5C4B8;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-secondary:hover { background: #FFE8E1; }
+
+.btn-danger {
+  background: #fff0f0;
+  color: #c53030;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-danger:hover { background: #ffe4e4; }
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #DE7356;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.btn-full {
+  width: 100%;
+  text-align: center;
+}
+
+.action-row {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+/* ── Mode selector & folder ─────────────────────────────────────────────── */
+
+select {
+  width: 100%;
+  border: 1px solid #F5C4B8;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 13px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B84B32' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+  transition: border-color 0.15s;
+}
+
+select:focus {
+  border-color: #DE7356;
+  box-shadow: 0 0 0 3px rgba(222, 115, 86, 0.15);
+}
+
+.optional {
+  font-weight: 400;
+  color: #999;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 11px;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 1px solid #F5C4B8;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 13px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+input[type="text"]:focus {
+  border-color: #DE7356;
+  box-shadow: 0 0 0 3px rgba(222, 115, 86, 0.15);
+}
+
+/* ── Configured meta row ─────────────────────────────────────────────────── */
+
+.configured-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+
+.configured-meta .label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Repeat toggle ───────────────────────────────────────────────────────── */
+
+.repeat-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.repeat-row input[type="checkbox"] {
+  accent-color: #DE7356;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.match-count {
+  font-size: 11px;
+  color: #DE7356;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.chip-relative-badge {
+  font-size: 9px;
+  background: #FFF0EC;
+  color: #DE7356;
+  border: 1px solid #F5C4B8;
+  border-radius: 3px;
+  padding: 1px 4px;
+  flex-shrink: 0;
+}
+
+/* ── Configured button rows ──────────────────────────────────────────────── */
+
+.config-btn-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 0;
+  border-bottom: 1px solid #F5C4B8;
+}
+
+.config-btn-row:last-child {
+  border-bottom: none;
+}
+
+.config-btn-selector {
+  flex: 1;
+  font-size: 11px;
+  color: #B84B32;
+  background: #FFF4F1;
+  border-radius: 4px;
+  padding: 3px 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: default;
+  min-width: 0;
+}
+
+.config-btn-selector:hover {
+  background: #FFE8E1;
+}
+
+.config-row-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ccc;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.config-btn-mode {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.btn-xs {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+/* ── Error view ──────────────────────────────────────────────────────────── */
+
+.error-text {
+  color: #c53030;
+  background: #fff0f0;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}

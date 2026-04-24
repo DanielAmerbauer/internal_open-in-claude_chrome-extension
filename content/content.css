@@ -1,0 +1,103 @@
+[data-ocwc-btn] {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #DE7356;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  margin-left: 8px;
+  vertical-align: middle;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+[data-ocwc-btn]:hover {
+  background: #C85F42;
+}
+
+[data-ocwc-btn]:active {
+  opacity: 0.85;
+}
+
+[data-ocwc-btn] svg {
+  flex-shrink: 0;
+}
+
+.ocwc-tooltip {
+  position: fixed;
+  z-index: 2147483646;
+  background: #1c1c1e;
+  color: #f2f2f7;
+  font: 12px/1.6 system-ui, -apple-system, sans-serif;
+  padding: 10px 14px;
+  border-radius: 10px;
+  max-width: 400px;
+  min-width: 100px;
+  max-height: 260px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  pointer-events: none;
+}
+
+.ocwc-tooltip::-webkit-scrollbar       { width: 4px; }
+.ocwc-tooltip::-webkit-scrollbar-track { background: transparent; }
+.ocwc-tooltip::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.22); border-radius: 2px; }
+
+#ocwc-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2147483647;
+  background: #DE7356;
+  color: #ffffff;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-family: system-ui, -apple-system, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.20);
+  user-select: none;
+}
+
+#ocwc-banner span {
+  flex: 1;
+}
+
+#ocwc-banner kbd {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-family: monospace;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+#ocwc-banner-cancel {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-family: system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  margin-left: 16px;
+  white-space: nowrap;
+}
+
+#ocwc-banner-cancel:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open with Claude</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="../icons/icon48.png" alt="" width="20" height="20">
+    <span>Open with Claude</span>
+  </header>
+
+  <div id="hostname-bar" class="hostname-bar hidden">
+    <span id="hostname-label"></span>
+  </div>
+
+  <!-- View: not configured -->
+  <div id="view-unconfigured" class="view hidden">
+    <p class="description">This site has no button configured yet.</p>
+    <button id="btn-setup" class="btn-primary">Set up button</button>
+  </div>
+
+  <!-- View: configured -->
+  <div id="view-configured" class="view hidden">
+    <div class="status-row">
+      <span class="status-dot"></span>
+      <span class="status-text" id="configured-status-text">Button active</span>
+    </div>
+    <div id="configured-buttons-list"></div>
+    <div style="margin-top: 10px;">
+      <button id="btn-add-button" class="btn-secondary btn-full">+ Add another button</button>
+    </div>
+  </div>
+
+  <!-- View: step 1 – waiting for element pick -->
+  <div id="view-step1" class="view hidden">
+    <div class="step-indicator">Step 1 of 2</div>
+    <p class="description">Hover over any element on the page, then press <strong>S</strong> to select it as the button target.</p>
+    <p class="hint">The banner at the top of the page shows pick mode is active.</p>
+    <button id="btn-cancel-step1" class="btn-secondary">Cancel</button>
+  </div>
+
+  <!-- View: step 2 – prompt editor -->
+  <div id="view-step2" class="view hidden">
+    <div class="step-indicator">Step 2 of 2</div>
+
+    <div class="field-group">
+      <label class="field-label">Target element</label>
+      <code id="pending-selector-display" class="selector-code"></code>
+      <button id="btn-repick" class="btn-link">Change</button>
+    </div>
+
+    <div class="field-group">
+      <label class="repeat-row">
+        <input type="checkbox" id="repeat-toggle">
+        <span>Inject on all matching elements</span>
+        <span id="match-count" class="match-count hidden"></span>
+      </label>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="mode-select">Claude mode</label>
+      <select id="mode-select">
+        <option value="code" selected>Code</option>
+        <option value="chat">Chat</option>
+        <option value="cowork">Cowork</option>
+      </select>
+    </div>
+
+    <div class="field-group hidden" id="folder-group">
+      <label class="field-label" for="folder-input">Local folder path <span class="optional">(optional)</span></label>
+      <input type="text" id="folder-input" placeholder="/Users/you/project">
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="prompt-textarea">Claude prompt</label>
+      <p class="hint">Use <code>{{name}}</code> placeholders for page content.</p>
+      <textarea id="prompt-textarea" rows="5" placeholder="e.g. Summarize this issue: {{title}}&#10;&#10;{{body}}"></textarea>
+    </div>
+
+    <div class="field-group">
+      <button id="btn-add-placeholder" class="btn-secondary btn-full">+ Insert placeholder from page</button>
+    </div>
+
+    <div id="placeholder-list" class="placeholder-list hidden"></div>
+
+    <div class="action-row">
+      <button id="btn-cancel-step2" class="btn-secondary">Cancel</button>
+      <button id="btn-save" class="btn-primary">Save</button>
+    </div>
+  </div>
+
+  <!-- View: error -->
+  <div id="view-error" class="view hidden">
+    <p class="error-text" id="error-message"></p>
+    <button id="btn-error-ok" class="btn-secondary">OK</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

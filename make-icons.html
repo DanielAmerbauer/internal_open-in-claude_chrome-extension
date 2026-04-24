@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><title>Generate Icons</title></head>
+<body>
+<p>Generating icons... check your downloads folder.</p>
+<script>
+function makeIcon(size) {
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d');
+
+  // Purple circle background
+  ctx.fillStyle = '#DE7356';
+  ctx.beginPath();
+  ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+  ctx.fill();
+
+  // White "C" letter
+  ctx.fillStyle = '#ffffff';
+  ctx.font = `bold ${Math.round(size * 0.58)}px system-ui, sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('C', size / 2 + size * 0.03, size / 2 + size * 0.02);
+
+  const a = document.createElement('a');
+  a.download = `icon${size}.png`;
+  a.href = canvas.toDataURL('image/png');
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// Small delay between downloads to avoid browser blocking
+[16, 48, 128].forEach((size, i) => setTimeout(() => makeIcon(size), i * 300));
+</script>
+</body>
+</html>
